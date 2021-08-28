@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    {{>header}}
+</head>
+<body>
+    {{>navbar}}
+    <h1 class="home">Add your Targets by filling below form</h1>
+    <section class="container-fliud" >
+        <section class="row justify-content-center">
+                    <section class="col-12 col-sm-6 col-md-3">
+
+    <form method="POST" action="/api/create" class="custom-form">
+    <div class="form-group">
+        <label for="exampleInputEmail1">ID Number<span style="color:red">*</span></label>
+    <input type="number" name="id" class="form-control" placeholder="Enter a unique number..." required>
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" name="title" class="form-control" placeholder="Type a title to identify..." required>
+        </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Description<span style="color:red">*</span></label>
+    <input type="text" name="description" class="form-control" placeholder="Type Info...">
+        </div>
+                <div class="custom-btn">
+    <button type="submit" class="btn btn-primary">Add Checklist</button>
+    </div>
+    </form>
+    </section>
+    </section>
+    </section>
+{{>footer}}
+</body>
+</html>

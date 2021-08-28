@@ -1,0 +1,30 @@
+{
+  "name": "blahajtargetlist",
+  "version": "1.0.0",
+  "description": "Get details about Sharks",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "shark": "nodemon src/app.js -e js,hbs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adarsha2003/blahajtargetlist.git"
+  },
+  "keywords": [
+    "Sharks"
+  ],
+  "author": "adarsha2003",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adarsha2003/blahajtargetlist/issues"
+  },
+  "homepage": "https://github.com/adarsha2003/blahajtargetlist#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "nodemon": "^2.0.12",
+    "pg": "^8.7.1"
+  }
+}

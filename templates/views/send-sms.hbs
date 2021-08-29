@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    {{>header}}
+</head>
+<body>
+    {{>navbar}}
+    <h1 class="home">Send me a 🦈!!!</h1>
+    <section class="container-fliud" >
+        <section class="row justify-content-center">
+                    <section class="col-12 col-sm-6 col-md-3">
+
+    <form method="POST" action="/api/sendsms" class="custom-form">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Phone Number (include +your country code)<span style="color:red">*</span></label>
+    <input type="text" name="phoneno" class="form-control" placeholder="Enter your mobile number..." required>
+    </div>
+                <div class="custom-btn">
+    <button type="submit" class="btn btn-primary">Send Now!!</button>
+    </div>
+    </form>
+    </section>
+    </section>
+    </section>
+{{>footer}}
+</body>
+</html>

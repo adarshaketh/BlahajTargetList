@@ -43,6 +43,9 @@ app.get("/",(req,res) => {
   app.get("/github",(req,res) => {
     res.render("github");
   })
+  app.get("/signup",(req,res) => {
+    res.render("signup");
+  })
 
 
 //app.get(path, callback)
@@ -57,6 +60,8 @@ app.use(
 
 app.get('/api/view', db.view) 
 app.post('/api/create', db.create)
+app.post('/api/sendsms', db.sendsms)
+app.post('/api/signup', db.signup)
 
 //server create
 app.listen(port, () => {

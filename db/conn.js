@@ -1,6 +1,10 @@
 //For secure connection:
 const { Pool } = require("pg");
 
+const accountSid = "AC7cccd3baa0c7d82b7da6ceab7fc04335";
+const authToken = "3b4e52d8e2c3d30bfbd5534f17e19c9a";
+const client = require('twilio')(accountSid, authToken);
+
 // Configure the database connection.
 
 const config = {
@@ -18,6 +22,7 @@ const config = {
             .toString()
     }*/
 };
+
 
 const pool = new Pool(config);
 
@@ -37,7 +42,7 @@ const view = (request, response) => {
 
   const create = (request, response) => {
     const { id, title, description } = request.body
-    pool.query('CREATE TABLE IF NOT EXISTS targets (id STRING NOT NULL, title STRING NOT NULL, description STRING NOT NULL, CONSTRAINT "primary" PRIMARY KEY (id ASC))',  (error, results) => {
+    pool.query('CREATE TABLE IF NOT EXISTS members (id STRING NOT NULL, title STRING NOT NULL, description STRING NOT NULL, CONSTRAINT "primary" PRIMARY KEY (id ASC))',  (error, results) => {
       if (error) {
         throw error
       }
@@ -50,7 +55,36 @@ const view = (request, response) => {
     })
     )}
 
+    const sendsms = (request, response) => {
+      
+      client.messages
+        .create({
+           body: 'Thanks for joining Blahaj!!!',
+           from: '+14123764341',
+           mediaUrl: ['https://blahajgang.lol/assets/just-blahaj.png'],
+           to: '+91745654409'
+         })
+        .then(message => console.log(message.sid)); 
+      }
+
+      const signup = (request, response) => {
+        const { name, email, phoneno } = request.body
+        pool.query('CREATE TABLE IF NOT EXISTS members (name STRING NOT NULL, email STRING NOT NULL, phoneno STRING NOT NULL, CONSTRAINT "primary" PRIMARY KEY (email ASC))',  (error, results) => {
+          if (error) {
+            throw error
+          }
+          console.log(`Created members table if it does not exist`)},
+        pool.query('INSERT INTO targets (name, email, phoneno) VALUES ($1, $2, $3)', [name, email, phoneno], (error, results) => {
+          if (error) {
+            throw error
+          }
+          response.redirect("/add-targets")
+        })
+        )}
+
 module.exports = {
 create,
-view
+view,
+sendsms,
+signup
   }

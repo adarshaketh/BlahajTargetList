@@ -1,4 +1,4 @@
-# Blahaj Gang Target List
+# 🦈🦈Blahaj Gang Target List💪🦈
 A target list app made using Node.js+ CockroachDB and useful for Blahaj warriors
 
 # ✔️Requirements:
@@ -35,12 +35,12 @@ npm run shark
 ## Inspiration
 We can see a lot of paid tools on internet which provides service to manage a users passwords. I thought why can't i build a application which uses Cockroach DB to store password, Node.js to host web application. This will be my first step of Contribution to Open Source Projects.
 ## What it does
-This WEB Application can be used to list the Higher targets to be achived by members of Blahaj Gang.
+This WEB Application can be used to list the Higher targets to be achieved by members of Blahaj Gang.
 ## How I built it
-I hosted this web application on Kali linux. I have build an API which runs SQL commands to manage database. I have used Express.js during the creation of API. I used Datatables to display list of Targets and Members stored in database in form of table. For Frontend I have used Bootstrap. I have integrated Twilio API to send Special Gift to Members via SMS.
+I hosted this web application on Kali linux. I have build an API which runs SQL commands to manage database. I have used Express.js during the creation of API. I used Datatables to display list of Targets and Members stored in database in form of table. For Frontend I have used Bootstrap. I have integrated Twilio API to send Special Gift to Members via SMS 📧.
 ## Challenges I ran into
 Due to lack of time i couldn't concentrate more on Website UI.
 ## What I learned
 Creating an API in node.js. Usage of express.js in node.js. Integrating Twilio API and CockroachDB to node.js project.
-## What's next for Blahaj Gang Target List
+## What's next for 🦈🦈�Blahaj Gang Target List💪🦈
 I am thinking to add delete, edit feature for Targets and members. Also i am thinking to add Admin Panel to manage Users more easily and secure way. 

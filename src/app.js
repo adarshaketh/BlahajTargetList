@@ -31,14 +31,11 @@ hbs.registerPartials(partials_path)
 app.get("/",(req,res) => {
     res.render("index");
   })
-  app.get("/getstarted",(req,res) => {
-    res.render("getstarted");
-  })
   app.get("/add-targets",(req,res) => {
     res.render("add-targets");
   })
-  app.get("/our-checklists",(req,res) => {
-    res.render("our-checklists");
+  app.get("/our-targets",(req,res) => {
+    res.render("our-targets");
   })
   app.get("/github",(req,res) => {
     res.render("github");
@@ -46,6 +43,16 @@ app.get("/",(req,res) => {
   app.get("/signup",(req,res) => {
     res.render("signup");
   })
+  app.get("/members",(req,res) => {
+    res.render("members");
+  })
+  app.get("/send-sms",(req,res) => {
+    res.render("send-sms");
+  })
+  app.get("/success",(req,res) => {
+    res.render("success");
+  })
+
 
 
 //app.get(path, callback)
@@ -62,7 +69,7 @@ app.get('/api/view', db.view)
 app.post('/api/create', db.create)
 app.post('/api/sendsms', db.sendsms)
 app.post('/api/signup', db.signup)
-
+app.get('/api/viewmem', db.viewmem)
 //server create
 app.listen(port, () => {
     console.log(`Server is running at port number ${port}`);

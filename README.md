@@ -33,7 +33,7 @@ npm run shark
 ```
 6. Go to http://localhost:3000 to view application
 ## Inspiration
-We can see a lot of paid tools on internet which provides service to manage a users passwords. I thought why can't i build a application which uses Cockroach DB to store password, Node.js to host web application. This will be my first step of Contribution to Open Source Projects.
+Its just made to help Blahaj Gang members to build Higher Targets and to manage those.
 ## What it does
 This WEB Application can be used to list the Higher targets to be achieved by members of Blahaj Gang.
 ## How I built it
@@ -42,5 +42,5 @@ I hosted this web application on Kali linux. I have build an API which runs SQL 
 Due to lack of time i couldn't concentrate more on Website UI.
 ## What I learned
 Creating an API in node.js. Usage of express.js in node.js. Integrating Twilio API and CockroachDB to node.js project.
-## What's next for 🦈🦈�Blahaj Gang Target List💪🦈
+## What's next for 🦈🦈Blahaj Gang Target List💪🦈
 I am thinking to add delete, edit feature for Targets and members. Also i am thinking to add Admin Panel to manage Users more easily and secure way. 

@@ -58,8 +58,8 @@ const view = (request, response) => {
     const sendsms = (request, response) => {
       client.messages
         .create({
-           body: 'Hi +14704654369. Thanks for joining Blahaj!!! You can buy your Blahaj from https://www.ikea.com/sg/en/p/blahaj-soft-toy-shark-10373589/',
-           from: '+14123764341',
+           body: 'Hi . Thanks for joining Blahaj!!! You can buy your Blahaj from https://www.ikea.com/sg/en/p/blahaj-soft-toy-shark-10373589/',
+           from: 'twilio_phone_no',
            mediaUrl: ['https://blahajgang.lol/assets/just-blahaj.png'],
            to: "you_mobile_no"
          })

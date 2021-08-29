@@ -1,17 +1,17 @@
 //For secure connection:
 const { Pool } = require("pg");
 
-const accountSid = "AC7cccd3baa0c7d82b7da6ceab7fc04335";
-const authToken = "3b4e52d8e2c3d30bfbd5534f17e19c9a";
+const accountSid = "your_accountSid";
+const authToken = "your_auth_token";
 const client = require('twilio')(accountSid, authToken);
 
 // Configure the database connection.
 
 const config = {
-  user: "adarsha",
-  password: "IjKPYhrP9s_K5L4s",
-  host: "free-tier6.gcp-asia-southeast1.cockroachlabs.cloud",
-  database: "sharkhacks-1386.defaultdb",
+  user: "db_username",
+  password: "db_password",
+  host: "db_hostname",
+  database: "db_name",
   port: 26257,
   ssl: {
     rejectUnauthorized: false,
@@ -51,18 +51,17 @@ const view = (request, response) => {
       if (error) {
         throw error
       }
-      response.redirect("/add-targets")
+      response.redirect("/our-targets")
     })
     )}
 
     const sendsms = (request, response) => {
-      
       client.messages
         .create({
-           body: 'Thanks for joining Blahaj!!!',
+           body: 'Hi +14704654369. Thanks for joining Blahaj!!! You can buy your Blahaj from https://www.ikea.com/sg/en/p/blahaj-soft-toy-shark-10373589/',
            from: '+14123764341',
            mediaUrl: ['https://blahajgang.lol/assets/just-blahaj.png'],
-           to: '+91745654409'
+           to: "you_mobile_no"
          })
         .then(message => console.log(message.sid)); 
       }
@@ -74,17 +73,31 @@ const view = (request, response) => {
             throw error
           }
           console.log(`Created members table if it does not exist`)},
-        pool.query('INSERT INTO targets (name, email, phoneno) VALUES ($1, $2, $3)', [name, email, phoneno], (error, results) => {
+        pool.query('INSERT INTO members (name, email, phoneno) VALUES ($1, $2, $3)', [name, email, phoneno], (error, results) => {
           if (error) {
             throw error
           }
-          response.redirect("/add-targets")
+          response.redirect("/members")
         })
+        )}
+        const viewmem = (request, response) => {
+          pool.query('CREATE TABLE IF NOT EXISTS members (id STRING NOT NULL, title STRING NOT NULL, description STRING NOT NULL, CONSTRAINT "primary" PRIMARY KEY (id ASC, title ASC))',  (error, results) => {
+           if (error) {
+            throw error
+          }
+          console.log(`Created targets table if it does not exist`)},
+          pool.query('SELECT * FROM members', (error, results) => {
+            if (error) {
+              throw error
+            }
+            response.status(200).json(results.rows)
+          })
         )}
 
 module.exports = {
 create,
 view,
 sendsms,
-signup
+signup,
+viewmem
   }

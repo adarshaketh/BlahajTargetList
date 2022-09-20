@@ -10,8 +10,8 @@ Install Nde.js and NPM in ubuntu
 sudo apt update
 sudo apt install nodejs
 sudo apt install npm
-sudo apt install nodemon
-sudo apt install twilio
+npm install nodemon
+npm install twilio
 ```
 
 # 🤔How to Deploy?
